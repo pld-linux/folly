@@ -12,7 +12,7 @@ Source0:	https://github.com/facebook/folly/archive/master/%{name}.tar.gz
 # Source0-md5:	d7ff084fbd77dc34bfd9469c7a974547
 Patch0:		https://github.com/facebook/folly/pull/29.patch
 # Patch0-md5:	8745f0742d7199a5d3b2864620812f89
-URL:		https://github.com/facebook/folly
+URL:		https://github.com/facebook/folly/blob/master/folly/docs/Overview.md
 BuildRequires:	boost-devel >= 1.20.0
 BuildRequires:	double-conversion-devel
 BuildRequires:	gflags-devel
@@ -21,7 +21,17 @@ BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Folly is an open-source C++ library developed and used at Facebook.
+Folly (acronymed loosely after Facebook Open Source Library) is a
+library of C++11 components designed with practicality and efficiency
+in mind. It complements (as opposed to competing against) offerings
+such as Boost and of course std. In fact, we embark on defining our
+own component only when something we need is either not available, or
+does not meet the needed performance profile.
+
+Performance concerns permeate much of Folly, sometimes leading to
+designs that are more idiosyncratic than they would otherwise be (see
+e.g. PackedSyncPtr.h, SmallLocks.h). Good performance at large scale
+is a unifying theme in all of Folly.
 
 %package devel
 Summary:	Header files for %{name} library
