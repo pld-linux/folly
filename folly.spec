@@ -15,6 +15,7 @@ Patch0:		https://github.com/facebook/folly/pull/29.patch
 URL:		https://github.com/facebook/folly/blob/master/folly/docs/Overview.md
 BuildRequires:	boost-devel >= 1.20.0
 BuildRequires:	double-conversion-devel
+BuildRequires:	double-conversion-static
 BuildRequires:	gflags-devel
 BuildRequires:	glog-devel
 BuildRequires:	gtest-devel >= 1.6.0
