@@ -16,6 +16,7 @@ URL:		https://github.com/facebook/folly/blob/master/folly/docs/Overview.md
 BuildRequires:	boost-devel >= 1.20.0
 BuildRequires:	double-conversion-devel
 BuildRequires:	gflags-devel
+BuildRequires:	glog-devel
 BuildRequires:	gtest-devel >= 1.6.0
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
