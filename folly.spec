@@ -20,6 +20,7 @@ BuildRequires:	gflags-devel
 BuildRequires:	glog-devel
 BuildRequires:	gtest-devel >= 1.6.0
 BuildRequires:	libstdc++-devel
+ExclusiveArch:	%{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
