@@ -5,13 +5,14 @@
 Summary:	Folly is an open-source C++ library developed and used at Facebook
 Name:		folly
 Version:	0.1
-Release:	1
+Release:	0.9
 License:	Apache v2.0
 Group:		Libraries
 Source0:	https://github.com/facebook/folly/archive/master/%{name}.tar.gz
 # Source0-md5:	d7ff084fbd77dc34bfd9469c7a974547
 Patch0:		https://github.com/facebook/folly/pull/29.patch
 # Patch0-md5:	8745f0742d7199a5d3b2864620812f89
+Patch1:		install-headers.patch
 URL:		https://github.com/facebook/folly/blob/master/folly/docs/Overview.md
 BuildRequires:	boost-devel >= 1.20.0
 BuildRequires:	double-conversion-devel
@@ -64,6 +65,7 @@ Statyczna biblioteka %{name}.
 %setup -qc
 mv folly-*/* .
 %patch0 -p1
+%patch1 -p1
 
 # this is gtest-1.6 seem to work
 ln -s %{_usrsrc}/gtest folly/test/gtest-1.6.0
