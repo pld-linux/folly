@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static libraries
 
-Summary:	Folly is an open-source C++ library developed and used at Facebook
+Summary:	Library of C++11 components designed with practicality and efficiency in mind
 Name:		folly
 Version:	0.1
 Release:	0.9
