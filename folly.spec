@@ -6,12 +6,12 @@
 
 Summary:	Library of C++11 components designed with practicality and efficiency in mind
 Name:		folly
-Version:	0.31.0
+Version:	0.26.0
 Release:	1
 License:	Apache v2.0
 Group:		Libraries
 Source0:	https://github.com/facebook/folly/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	40c654db9055e9dd735907b0a430c16b
+# Source0-md5:	c76a3fd2e86215d523a9fe18ba9087a1
 URL:		https://github.com/facebook/folly/blob/master/folly/docs/Overview.md
 BuildRequires:	boost-devel >= 1.20.0
 BuildRequires:	double-conversion-devel
@@ -24,8 +24,8 @@ BuildRequires:	rpmbuild(macros) >= 1.583
 ExclusiveArch:	%{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-# missing openssl linking
-%define		skip_post_check_so	libfolly.so.31.0.0
+# missing -lopenssl -ldl linking
+%define		skip_post_check_so	libfolly.so.26.0.0
 
 %description
 Folly (acronymed loosely after Facebook Open Source Library) is a
@@ -98,9 +98,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README LICENSE
 %attr(755,root,root) %{_libdir}/libfolly.so.*.*.*
-%ghost %{_libdir}/libfolly.so.31
+%ghost %{_libdir}/libfolly.so.26
 %attr(755,root,root) %{_libdir}/libfollybenchmark.so.*.*.*
-%ghost %{_libdir}/libfollybenchmark.so.31
+%ghost %{_libdir}/libfollybenchmark.so.26
 
 %files devel
 %defattr(644,root,root,755)
