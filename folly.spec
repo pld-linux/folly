@@ -13,13 +13,20 @@ Group:		Libraries
 Source0:	https://github.com/facebook/folly/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	40c654db9055e9dd735907b0a430c16b
 URL:		https://github.com/facebook/folly/blob/master/folly/docs/Overview.md
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	boost-devel >= 1.20.0
 BuildRequires:	double-conversion-devel
-BuildRequires:	double-conversion-static
 BuildRequires:	gflags-devel
 BuildRequires:	glog-devel
 BuildRequires:	gtest-devel >= 1.6.0
+BuildRequires:	libevent-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
+BuildRequires:	m4
+BuildRequires:	openssl-devel
+BuildRequires:	python
+BuildRequires:	python-modules
 BuildRequires:	rpmbuild(macros) >= 1.583
 ExclusiveArch:	%{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
