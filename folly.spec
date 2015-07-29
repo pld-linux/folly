@@ -1,25 +1,24 @@
-# TODO
-# - add testing
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static libraries
+%bcond_with	tests		# build with tests
 
 Summary:	Library of C++11 components designed with practicality and efficiency in mind
 Name:		folly
-Version:	0.31.0
-Release:	2
+Version:	0.41.0
+Release:	1
 License:	Apache v2.0
 Group:		Libraries
 Source0:	https://github.com/facebook/folly/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	40c654db9055e9dd735907b0a430c16b
-URL:		https://github.com/facebook/folly/blob/master/folly/docs/Overview.md
+# Source0-md5:	d7ff7682850ea0846881fb1fb42136e9
+URL:		https://github.com/facebook/folly
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-devel >= 1.20.0
 BuildRequires:	double-conversion-devel
 BuildRequires:	gflags-devel
 BuildRequires:	glog-devel
-BuildRequires:	gtest-devel >= 1.6.0
+%{?with_tests:BuildRequires:	gtest-devel >= 1.6.0}
 BuildRequires:	libevent-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
@@ -31,8 +30,10 @@ BuildRequires:	rpmbuild(macros) >= 1.583
 ExclusiveArch:	%{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		sover	%(echo %{version} | cut -d. -f2)
+
 # missing openssl linking
-%define		skip_post_check_so	libfolly.so.31.0.0
+%define		skip_post_check_so	libfolly.so.%{sover}.0.0
 
 %description
 Folly (acronymed loosely after Facebook Open Source Library) is a
@@ -86,6 +87,7 @@ cd folly
 %configure \
 	%{!?with_static_libs:--disable-static}
 %{__make}
+%{?with_tests:%{__make} check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -103,11 +105,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README LICENSE
+%doc README.md LICENSE
 %attr(755,root,root) %{_libdir}/libfolly.so.*.*.*
-%ghost %{_libdir}/libfolly.so.31
+%ghost %{_libdir}/libfolly.so.%{sover}
 %attr(755,root,root) %{_libdir}/libfollybenchmark.so.*.*.*
-%ghost %{_libdir}/libfollybenchmark.so.31
+%ghost %{_libdir}/libfollybenchmark.so.%{sover}
 
 %files devel
 %defattr(644,root,root,755)
