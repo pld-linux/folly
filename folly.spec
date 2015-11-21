@@ -11,6 +11,7 @@ License:	Apache v2.0
 Group:		Libraries
 Source0:	https://github.com/facebook/folly/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	d7ff7682850ea0846881fb1fb42136e9
+Patch0:		gcc5.patch
 URL:		https://github.com/facebook/folly
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -74,6 +75,7 @@ Statyczna biblioteka %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
 
 #ln -s %{_usrsrc}/gtest folly/test/gtest-1.7.0
 
