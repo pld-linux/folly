@@ -6,7 +6,7 @@
 Summary:	Library of C++11 components designed with practicality and efficiency in mind
 Name:		folly
 Version:	0.41.0
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Libraries
 Source0:	https://github.com/facebook/folly/archive/v%{version}/%{name}-%{version}.tar.gz
