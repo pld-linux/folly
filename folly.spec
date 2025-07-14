@@ -75,7 +75,7 @@ Statyczna biblioteka %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 #ln -s %{_usrsrc}/gtest folly/test/gtest-1.7.0
 
